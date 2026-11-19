@@ -1,0 +1,141 @@
+
+<ion-view view-title="Financeiro">
+
+    <ion-content class="padding">
+
+        <h4>Minhas Mensalidades</h4>
+        <p>Consulte sua situação financeira por semestre.</p>
+
+        <!-- Seleção do semestre -->
+        <div class="list">
+            <label class="item item-input item-select">
+
+                <div class="input-label">
+                    Semestre
+                </div>
+
+                <select
+                    ng-model="semestreSelecionado"
+                    ng-options="semestre for semestre in semestres"
+                    ng-change="carregarMensalidades()">
+                </select>
+
+            </label>
+        </div>
+
+        <!-- Resumo financeiro -->
+        <div class="card">
+
+            <div class="item item-divider">
+                Resumo Financeiro — {{ semestreSelecionado }}
+            </div>
+
+            <div class="item">
+
+                <p>Total pago</p>
+
+                <h2 class="balanced">
+                    {{ totalPago | currency:'R$ ' }}
+                </h2>
+
+            </div>
+
+            <div class="item">
+
+                <p>Total pendente</p>
+
+                <h2 class="assertive">
+                    {{ totalPendente | currency:'R$ ' }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        <!-- Mensalidades -->
+        <div class="list card"
+             ng-repeat="mensalidade in mensalidades track by mensalidade.id">
+
+            <div class="item item-divider">
+
+                {{ mensalidade.mes }}
+
+                <span
+                    class="badge"
+                    ng-class="{
+                        'badge-balanced': mensalidade.status === 'Pago',
+                        'badge-assertive': mensalidade.status === 'Pendente'
+                    }">
+
+                    {{ mensalidade.status }}
+
+                </span>
+
+            </div>
+
+            <div class="item item-body">
+
+                <p>
+                    <strong>Vencimento:</strong>
+                    {{ mensalidade.vencimento }}
+                </p>
+
+                <p>
+                    <strong>Valor:</strong>
+                    {{ mensalidade.valor | currency:'R$ ' }}
+                </p>
+
+                <!-- Código disponível para mensalidades pendentes -->
+                <div ng-if="mensalidade.status === 'Pendente'">
+
+                    <p>
+                        <strong>Código de barras fictício:</strong>
+                    </p>
+
+                    <p style="overflow-wrap: anywhere; font-size: 12px;">
+                        {{ mensalidade.codigoBarras }}
+                    </p>
+
+                    <button
+                        class="button button-positive button-small"
+                        ng-click="copiarCodigo(mensalidade)">
+
+                        <i class="icon ion-ios-copy"></i>
+                        Copiar código
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Mensagem de confirmação -->
+        <p class="balanced text-center"
+           ng-if="mensagem"
+           aria-live="polite">
+
+            {{ mensagem }}
+
+        </p>
+
+        <!-- Sem mensalidades -->
+        <div class="text-center"
+             ng-if="mensalidades.length === 0">
+
+            <p>Nenhuma mensalidade encontrada.</p>
+
+        </div>
+
+        <p class="text-center"
+           style="font-size: 12px; color: #777; margin-top: 20px;">
+
+            Dados financeiros fictícios para demonstração acadêmica.
+            Os códigos apresentados não são válidos para pagamento.
+
+        </p>
+
+    </ion-content>
+
+</ion-view>

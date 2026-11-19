@@ -1,0 +1,51 @@
+
+<ion-view view-title="Acesso do Aluno" hide-nav-bar="true">
+    <ion-content class="padding">
+
+        <div class="text-center" style="margin-top: 60px;">
+            <h1 style="color: #004b8d;">UCSal</h1>
+            <h3>Portal do Aluno</h3>
+            <p>Entre com sua matrícula e senha</p>
+        </div>
+
+        <form ng-submit="entrar()" style="margin-top: 40px;">
+
+            <div class="list">
+
+                <label class="item item-input">
+                    <i class="icon ion-person placeholder-icon"></i>
+                    <input type="text"
+                           placeholder="Matrícula"
+                           ng-model="usuario.matricula"
+                           autocomplete="username"
+                           required>
+                </label>
+
+                <label class="item item-input">
+                    <i class="icon ion-locked placeholder-icon"></i>
+                    <input type="password"
+                           placeholder="Senha"
+                           ng-model="usuario.senha"
+                           autocomplete="current-password"
+                           required>
+                </label>
+
+            </div>
+
+            <p class="assertive text-center" ng-if="erro">
+                {{ erro }}
+            </p>
+
+            <button type="submit"
+                    class="button button-positive button-block">
+                Entrar
+            </button>
+
+        </form>
+
+        <div class="text-center" style="margin-top: 30px;">
+            <p>Universidade Católica do Salvador</p>
+        </div>
+
+    </ion-content>
+</ion-view>

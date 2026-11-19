@@ -1,0 +1,112 @@
+
+<ion-view view-title="Meu Perfil">
+
+    <ion-content class="padding">
+
+        <div class="text-center" style="margin: 20px 0;">
+            <i class="icon ion-person"
+               style="font-size: 70px; color: #004b8d;"></i>
+
+            <h3>{{ aluno.nome }}</h3>
+            <p>Portal do Aluno UCSal</p>
+        </div>
+
+        <form ng-submit="salvar()" novalidate>
+
+            <!-- Dados pessoais -->
+            <div class="list">
+
+                <div class="item item-divider">
+                    Dados Pessoais
+                </div>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Nome completo</span>
+                    <input type="text"
+                           ng-model="aluno.nome"
+                           placeholder="Nome completo"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">E-mail</span>
+                    <input type="email"
+                           ng-model="aluno.email"
+                           placeholder="E-mail"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Telefone</span>
+                    <input type="tel"
+                           ng-model="aluno.telefone"
+                           placeholder="Telefone"
+                           required>
+                </label>
+
+            </div>
+
+            <!-- Dados acadêmicos -->
+            <div class="list">
+
+                <div class="item item-divider">
+                    Dados Acadêmicos
+                </div>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Matrícula</span>
+                    <input type="text"
+                           ng-model="aluno.matricula"
+                           disabled>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Curso</span>
+                    <input type="text"
+                           ng-model="aluno.curso"
+                           disabled>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Semestre</span>
+                    <input type="text"
+                           ng-model="aluno.semestre"
+                           disabled>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Situação acadêmica</span>
+                    <input type="text"
+                           ng-model="aluno.situacao"
+                           disabled>
+                </label>
+
+            </div>
+
+            <!-- Mensagens -->
+            <p class="balanced text-center" ng-if="mensagem">
+                {{ mensagem }}
+            </p>
+
+            <p class="assertive text-center" ng-if="erro">
+                {{ erro }}
+            </p>
+
+            <!-- Botões -->
+            <button type="submit"
+                    class="button button-positive button-block">
+                <i class="icon ion-checkmark"></i>
+                Salvar Alterações
+            </button>
+
+            <button type="button"
+                    class="button button-stable button-block"
+                    ng-click="cancelar()">
+                Cancelar
+            </button>
+
+        </form>
+
+    </ion-content>
+
+</ion-view>

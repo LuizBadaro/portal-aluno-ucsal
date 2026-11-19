@@ -1,0 +1,67 @@
+
+<ion-view view-title="Notícias e Eventos">
+
+    <ion-content class="padding">
+
+        <h4>Fique por dentro da UCSal</h4>
+        <p>Confira as últimas notícias e eventos.</p>
+
+        <!-- Filtro por categoria -->
+        <div class="button-bar" style="margin-bottom: 20px;">
+
+            <button
+                class="button button-small"
+                ng-repeat="categoria in categorias"
+                ng-class="{
+                    'button-positive': categoriaSelecionada === categoria,
+                    'button-stable': categoriaSelecionada !== categoria
+                }"
+                ng-click="filtrar(categoria)">
+
+                {{ categoria }}
+
+            </button>
+
+        </div>
+
+        <!-- Lista de notícias -->
+        <div class="list card"
+             ng-repeat="noticia in noticias track by noticia.id">
+
+            <div class="item item-divider">
+                {{ noticia.categoria }}
+            </div>
+
+            <div class="item item-body">
+
+                <h2>{{ noticia.titulo }}</h2>
+
+                <p>
+                    <i class="icon ion-calendar"></i>
+                    {{ noticia.data }}
+                </p>
+
+                <p>{{ noticia.resumo }}</p>
+
+                <a class="button button-positive button-small"
+                   ui-sref="app.noticiaDetalhe({id: noticia.id})">
+
+                    Ver detalhes
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Mensagem caso não existam notícias -->
+        <div class="text-center"
+             ng-if="noticias.length === 0">
+
+            <p>Nenhuma notícia encontrada.</p>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>
