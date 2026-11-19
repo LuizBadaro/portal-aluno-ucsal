@@ -3,96 +3,134 @@
 
     <ion-content class="padding">
 
-        <div class="text-center" style="margin: 20px 0;">
-            <i class="icon ion-person"
-               style="font-size: 70px; color: #004b8d;"></i>
-
-            <h3>{{ aluno.nome }}</h3>
-            <p>Portal do Aluno UCSal</p>
-        </div>
+        <h4>Dados Cadastrais</h4>
+        <p>Consulte seus dados acadêmicos e atualize suas informações pessoais.</p>
 
         <form ng-submit="salvar()" novalidate>
 
-            <!-- Dados pessoais -->
-            <div class="list">
-
-                <div class="item item-divider">
-                    Dados Pessoais
-                </div>
-
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Nome completo</span>
-                    <input type="text"
-                           ng-model="aluno.nome"
-                           placeholder="Nome completo"
-                           required>
-                </label>
-
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">E-mail</span>
-                    <input type="email"
-                           ng-model="aluno.email"
-                           placeholder="E-mail"
-                           required>
-                </label>
-
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label">Telefone</span>
-                    <input type="tel"
-                           ng-model="aluno.telefone"
-                           placeholder="Telefone"
-                           required>
-                </label>
-
-            </div>
-
             <!-- Dados acadêmicos -->
-            <div class="list">
+            <div class="list card">
 
                 <div class="item item-divider">
                     Dados Acadêmicos
                 </div>
 
                 <label class="item item-input item-stacked-label">
+                    <span class="input-label">Nome Completo</span>
+                    <input type="text"
+                           ng-model="aluno.nome"
+                           ng-disabled="true">
+                </label>
+
+                <label class="item item-input item-stacked-label">
                     <span class="input-label">Matrícula</span>
                     <input type="text"
                            ng-model="aluno.matricula"
-                           disabled>
+                           ng-disabled="true">
                 </label>
 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Curso</span>
                     <input type="text"
                            ng-model="aluno.curso"
-                           disabled>
+                           ng-disabled="true">
                 </label>
 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Semestre</span>
                     <input type="text"
                            ng-model="aluno.semestre"
-                           disabled>
+                           ng-disabled="true">
                 </label>
 
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label">Situação acadêmica</span>
+                    <span class="input-label">Situação</span>
                     <input type="text"
                            ng-model="aluno.situacao"
-                           disabled>
+                           ng-disabled="true">
+                </label>
+
+            </div>
+
+            <!-- Dados pessoais -->
+            <div class="list card">
+
+                <div class="item item-divider">
+                    Dados Pessoais
+                </div>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">E-mail Pessoal</span>
+                    <input type="email"
+                           ng-model="aluno.email"
+                           placeholder="Digite seu e-mail"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Telefone / WhatsApp</span>
+                    <input type="tel"
+                           ng-model="aluno.telefone"
+                           placeholder="(71) 99999-9999"
+                           required>
+                </label>
+
+            </div>
+
+            <!-- Endereço -->
+            <div class="list card">
+
+                <div class="item item-divider">
+                    Endereço
+                </div>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">CEP</span>
+                    <input type="text"
+                           ng-model="aluno.cep"
+                           placeholder="00000-000"
+                           maxlength="9"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Rua</span>
+                    <input type="text"
+                           ng-model="aluno.rua"
+                           placeholder="Digite sua rua"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Bairro</span>
+                    <input type="text"
+                           ng-model="aluno.bairro"
+                           placeholder="Digite seu bairro"
+                           required>
+                </label>
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Cidade</span>
+                    <input type="text"
+                           ng-model="aluno.cidade"
+                           placeholder="Digite sua cidade"
+                           required>
                 </label>
 
             </div>
 
             <!-- Mensagens -->
-            <p class="balanced text-center" ng-if="mensagem">
-                {{ mensagem }}
+            <p class="balanced text-center"
+               ng-if="mensagemSucesso">
+                {{ mensagemSucesso }}
             </p>
 
-            <p class="assertive text-center" ng-if="erro">
-                {{ erro }}
+            <p class="assertive text-center"
+               ng-if="mensagemErro">
+                {{ mensagemErro }}
             </p>
 
-            <!-- Botões -->
+            <!-- Ações -->
             <button type="submit"
                     class="button button-positive button-block">
                 <i class="icon ion-checkmark"></i>

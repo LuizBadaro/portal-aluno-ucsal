@@ -34,19 +34,32 @@
 
             <div class="item item-body">
 
+                <!-- Imagem da notícia -->
+                <img
+                    ng-if="noticia.imagem"
+                    ng-src="{{ noticia.imagem }}"
+                    alt="{{ noticia.titulo }}"
+                    class="imagem-noticia">
+
+                <!-- Título -->
                 <h2>{{ noticia.titulo }}</h2>
 
+                <!-- Data -->
                 <p>
                     <i class="icon ion-calendar"></i>
                     {{ noticia.data }}
                 </p>
 
+                <!-- Resumo -->
                 <p>{{ noticia.resumo }}</p>
 
-                <a class="button button-positive button-small"
-                   ui-sref="app.noticiaDetalhe({id: noticia.id})">
+                <!-- Botão de detalhes -->
+                <a
+                    class="button button-positive button-small"
+                    ui-sref="app.noticiaDetalhe({id: noticia.id})">
 
-                    Ver detalhes
+                    <i class="icon ion-ios-book"></i>
+                    Ler mais
 
                 </a>
 
@@ -54,7 +67,7 @@
 
         </div>
 
-        <!-- Mensagem caso não existam notícias -->
+        <!-- Mensagem quando não houver notícias -->
         <div class="text-center"
              ng-if="noticias.length === 0">
 
