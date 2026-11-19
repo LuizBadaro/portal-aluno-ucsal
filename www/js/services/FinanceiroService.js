@@ -1,10 +1,9 @@
 
 angular.module('portalUcsal')
-
 .factory('FinanceiroService', function() {
 
-    // Dados financeiros fictícios
     var mensalidades = [
+        // SEMESTRE 2026.1 — TODAS PAGAS
         {
             id: 1,
             semestre: '2026.1',
@@ -32,6 +31,8 @@ angular.module('portalUcsal')
             status: 'Pago',
             codigoBarras: '00190000000000850000000000000000000000000003'
         },
+
+        // SEMESTRE 2026.2 — MANTER STATUS
         {
             id: 4,
             semestre: '2026.2',
@@ -80,26 +81,20 @@ angular.module('portalUcsal')
     ];
 
     return {
-
-        // Retorna todas as mensalidades
         listar: function() {
             return angular.copy(mensalidades);
         },
 
-        // Retorna os semestres disponíveis
         listarSemestres: function() {
             return ['2026.1', '2026.2'];
         },
 
-        // Filtra mensalidades por semestre
         filtrarPorSemestre: function(semestre) {
-
-            return mensalidades.filter(function(mensalidade) {
-                return mensalidade.semestre === semestre;
-            });
-
+            return angular.copy(
+                mensalidades.filter(function(mensalidade) {
+                    return mensalidade.semestre === semestre;
+                })
+            );
         }
-
     };
-
 });

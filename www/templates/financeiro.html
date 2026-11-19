@@ -15,10 +15,10 @@
                 </div>
 
                 <select
-                    ng-model="semestreSelecionado"
-                    ng-options="semestre for semestre in semestres"
-                    ng-change="carregarMensalidades()">
-                </select>
+    ng-model="filtro.semestre"
+    ng-options="semestre for semestre in semestres"
+    ng-change="carregarMensalidades()">
+</select>
 
             </label>
         </div>
@@ -27,7 +27,7 @@
         <div class="card">
 
             <div class="item item-divider">
-                Resumo Financeiro — {{ semestreSelecionado }}
+                Resumo Financeiro — {{ filtro.semestre }}
             </div>
 
             <div class="item">

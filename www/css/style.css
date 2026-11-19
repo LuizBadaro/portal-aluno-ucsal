@@ -1,0 +1,96 @@
+
+/* Identidade visual do Portal UCSal */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #263238;
+}
+
+/* Cabeçalho */
+.bar.bar-positive {
+    background-color: #004b8d;
+    border-color: #00386b;
+}
+
+.bar.bar-positive .title,
+.bar.bar-positive .button {
+    color: #ffffff;
+}
+
+/* Botões principais */
+.button.button-positive {
+    background-color: #004b8d;
+    border-color: #00386b;
+}
+
+.button.button-positive.activated {
+    background-color: #00386b;
+}
+
+/* Títulos */
+h2, h3, h4 {
+    color: #004b8d;
+}
+
+/* Cards */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Títulos dos cards */
+.item-divider {
+    background-color: #eef4f9;
+    color: #004b8d;
+    font-weight: bold;
+}
+
+/* Campos de formulário */
+.item-input input {
+    font-size: 15px;
+}
+
+/* Indicadores financeiros */
+.badge-balanced {
+    background-color: #2e7d32;
+}
+
+.badge-assertive {
+    background-color: #c62828;
+}
+
+/* Espaçamento */
+ion-content .padding {
+    padding: 16px;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+    .button-bar .button {
+        font-size: 11px;
+        padding: 0 4px;
+    }
+
+    .card {
+        margin: 10px 0;
+    }
+}
+/* Imagens das notícias */
+.imagem-noticia {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin: 15px auto;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 480px) {
+    .imagem-noticia {
+        height: 170px;
+    }
+}

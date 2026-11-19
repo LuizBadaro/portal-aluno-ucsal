@@ -11,8 +11,9 @@ angular.module('portalUcsal')
     $scope.semestres = FinanceiroService.listarSemestres();
 
     // Semestre selecionado inicialmente
-    $scope.semestreSelecionado = '2026.2';
-
+   $scope.filtro = {
+    semestre: '2026.2'
+};
     // Mensalidades do semestre
     $scope.mensalidades = [];
 
@@ -26,11 +27,10 @@ angular.module('portalUcsal')
     // Carrega as mensalidades do semestre selecionado
     $scope.carregarMensalidades = function() {
 
-        $scope.mensalidades =
-            FinanceiroService.filtrarPorSemestre(
-                $scope.semestreSelecionado
-            );
-
+       $scope.mensalidades =
+    FinanceiroService.filtrarPorSemestre(
+        $scope.filtro.semestre
+    );
         $scope.totalPago = 0;
         $scope.totalPendente = 0;
         $scope.mensagem = '';
